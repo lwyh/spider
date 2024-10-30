@@ -7,7 +7,7 @@ def matrix_complicated():
     arr1 = in1.split(" ")
     N = int(arr1[0])  #矩阵的行数
     M = int(arr1[1])  #矩阵的列数
-    K = int(arr1[2])  #第K大数
+    K = int(arr1[2])  #
 
     #print(N,M,K)
   #初始化空的数组
