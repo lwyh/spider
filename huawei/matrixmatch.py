@@ -1,13 +1,16 @@
 import numpy as np
 
+"""
 
+
+"""
 
 def matrix_complicated():
     in1 = input()
     arr1 = in1.split(" ")
     N = int(arr1[0])  #矩阵的行数
     M = int(arr1[1])  #矩阵的列数
-    K = int(arr1[2])  #
+    K = int(arr1[2])  # 矩阵的维度
 
     #print(N,M,K)
   #初始化空的数组
