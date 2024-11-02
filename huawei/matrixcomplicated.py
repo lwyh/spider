@@ -6,6 +6,7 @@
 
 
 import numpy as np
+import random
 
 
 
@@ -37,24 +38,32 @@ def matrix_complicated():
 
     print(matrix)
 
-    matrix2= np.zeros(N,dtype=int)
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows>0 else 0
+    picked_element = []
+    used_rows = set()
+    used_cols = set()
+
+
+
+    while(len(picked_element)<N):  
+        row = random.randint(0,rows-1)
+        col = random.randint(0,cols-1)
+        if row in used_rows or col in used_cols:
+            continue
+        picked_element.append(matrix[row][col])
+        used_rows.add(row)
+        used_cols.add(col)
+    print(picked_element)
+
+    
+
    
-   
-    for i in range(M):
-        matrix2[0].a
-            for m in range(M):
-                if m==i:
-                   continue
-                for 
-
-                
-                if(matrix[0][j]<min):
-                    min=matrix[0][j]
-        
+    
 
 
 
-    return matrix
+    return picked_element
 
     
 
