@@ -55,7 +55,7 @@ def backtrack(arr):
     new_arr = sorted(arr,reverse=True)
     #接下来的排序是arr[0]+1,arr[0]+2为随意分派在每组，arr[0]+len(arr)//3，arr[0]+len(arr)//3+1，arr[0]+len(arr)//3+2
     #在一组，arr[0]+2*len(arr)//3，arr[0]+2*len(arr)//3+1，arr[0]+2*len(arr)//3+2在一组，最大的数是
-    #最后一种方案思路最清晰，相邻的连续的最大数和次最大数在列表中的位置大于或等于3时，则至少需要移动一次
+    #最后一种方案思路最清晰，基于贪心算法明白怎样排列使得留下的值的累加和最大，相邻的连续的最大数和次最大数在列表中的位置大于或等于3时，则至少需要移动一次
     for i in range(1,2*len(arr)//3):
 
         if(abs(arr.index(new_arr[0]-i+1)-arr.index(new_arr[0]-i))>=3):
@@ -63,22 +63,6 @@ def backtrack(arr):
         i+=2
     print(count)
     return count
-
-
-
-    
-   
-  
-
-
-
-
-    
-
-
-
-    
-    
 
 if __name__=='__main__':
     backtrack(arr1)
