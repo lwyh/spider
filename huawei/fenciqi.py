@@ -14,7 +14,7 @@ def fenciqi():
     base_dict={}
     count=0
     #第二种情况是单个字母不在词库中且不成词语则直接输出单个字母
-    #to do 第四种情况是itit这种保证输出是i,t,i,t，目前输出是i,i,t,t，有待优化
+    #第四种情况是itit这种保证输出是i,t,i,t，
     def check_no_match(mainstring,check_list):
         #将需要匹配的词库连接成一个正则表达式
         pattern ="|".join(re.escape(word) for word in check_list)
@@ -58,13 +58,13 @@ def fenciqi():
 
 
     """
-        #使用iteratools.chain合并成一个大的list
+       
     """
         list_com=[]
         for i in range(len(element_list)):
             list_com.append(list(element_list[i]))
     """
-
+    #使用iteratools.chain合并成一个大的list
     final_out=[]
     for i in range(len(arr1)):
         check_in_match(arr1[i],arr2)
@@ -84,6 +84,7 @@ def fenciqi():
             select_list=[]
             #初始化start
             current_start=0
+            #初始化end为负无穷
             current_end=float('-inf')
         
         #这步骤是将最长区间长度的选出来，以最少区间数来表示，确保第一种情况最长字符长度匹配以及不重叠字符拆分
