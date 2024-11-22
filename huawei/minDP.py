@@ -142,9 +142,15 @@ def mindp():
                     combine_set_less=set()
             print(rank_list_less)
             
-            less=len(rank_list_less)
-            over=len(rank_list_over)
-            DP[current]=max(none_current_count,over,less,max(len(sublist) for index,sublist in enumerate(over_list)))
+            if(rank_list_less==[]):
+                less=0
+            else:
+                less=max(rank_list_less)
+            if(rank_list_over==[]):
+                over=0
+            else:
+                over=max(rank_list_over)
+            DP[current]=max(none_current_count,over,less,max(len(sublist) for index,sublist in enumerate(over_list)),max(len(sublist) for index,sublist in enumerate(less_list)))
             over_list=[]
             less_list=[]
             rank_list_less=[]
