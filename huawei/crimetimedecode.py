@@ -12,6 +12,7 @@ def crimetime(number):
     cor_list=[]
     mintime=0
     ruletime=""
+    #分钟不是59
     if(ss!=59):
         for i in range(len(number)):
             if(number[-1]<number[i] ):
@@ -23,6 +24,7 @@ def crimetime(number):
             mintime=min(over_list)
             ruletime=str(number[0])+str(number[1])+":"+str(number[2])+str(mintime)
         over_list=[]
+        #分钟是59，但是小时不是23
     if(ss==59 and hh!=23):
         for i in range(len(number)):
             if(number[1]<number[i] ):
@@ -43,7 +45,7 @@ def crimetime(number):
                 minss=min(number)
                 ruletime=str(number[0])+str(minhour)+":"+str(minss)+str(minss)
         over_list=[]
-            
+     #分钟是59  ，且小时是23     
     if(hh==23 and ss==59):
         ruletime="22:22"
    
