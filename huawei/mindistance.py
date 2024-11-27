@@ -78,33 +78,7 @@ def mindistance():
                
 
     print(step)
-
-            
-
-            
-       
-            
-
-    
     return step
-
-    
-    
-    
-    
-
-        
-    
-
-            
-
-
-
-
-
-
-
-
 
 if __name__=="__main__":
     mindistance()
