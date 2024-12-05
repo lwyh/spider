@@ -6,7 +6,7 @@
 右括号是触发运算的机关，每次运算后更新到数值栈顶并弹出运算符中的左括号，继续下一轮计算
 没有括号的运算时，需要继续计算直至运算符的栈为空
 在中间计算时，碰上已经存在的运算符优先级高于或等于即将插入栈内的运算符的优先级时，可以先做一次合并中间结果的运算
-
+异常情况的处理：引入fraction库保留最终结果为最简分数，当除数为0时，直接输出ERROR
 
 """
 from fractions import Fraction
@@ -66,12 +66,15 @@ def calculate(expression):
             raise RuntimeError('无效字符')
     #将没有括号的计算值统计出来  
     while operators:
-        apply_operator(operators,values) 
-    return values[0]
+        apply_operator(operators,values)
+    if(len(values)==0):
+        return "ERROR" 
+    else:
+        return values[0]
 
             
         #将括号外的数值计算出来
 if __name__ == '__main__':
-    expression = "1 + 5 * 7 / 8"
+    expression = "1 / 0"
     result = calculate(expression)
     print(result)
