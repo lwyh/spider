@@ -18,7 +18,6 @@ def maxyuanyin():
     yuan_start=0
     flaw=[]
     flaw_max={}
-    out=0
     start=0
     end=0
     def is_alpha(str):
@@ -206,7 +205,7 @@ def maxyuanyin():
             for j in range(1,len(yuan_not_site)):
                 if(yuan_not_site[j]-yuan_not_site[j-1] !=1):
                     count_list.append(yuan_not_site[j]-yuan_not_site[j-1]-1)
-            out= max(count_list)
+            print(max(count_list))  
         
   
 
