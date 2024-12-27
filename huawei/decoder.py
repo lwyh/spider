@@ -11,7 +11,6 @@ def decoder():
     N=int(input())
     ming = list(map(int,input().split()))
     M=int(input())
-    mimaben=np.zeros((M,M),dtype=int)
     arr=[]
     index_list=[]
     for i in range(M):
@@ -23,6 +22,7 @@ def decoder():
         if(ming[k] not in arr):
             #print("error")
             break
+    #将一维数组转换成二维矩阵的组成，获取索引位置
         for m in range(len(arr)):
             if(ming[k]==arr[m]):
                 i=m//M
@@ -32,11 +32,12 @@ def decoder():
                 else:
                     idxdict[ming[k]].append((i,j))
         
-           
+    #包含有找不到元素时直接报错   
     print(idxdict) 
     if(len(idxdict.keys())<len(ming)):
         print("error")
     else:
+        #将所有找到的元素按照字符排序，并输出最小值
         for key ,values in idxdict.items():
             sorted_values = sorted(values,key = lambda item: (item[0],item[1]))
             min_value=sorted_values[0]
