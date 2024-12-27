@@ -18,6 +18,7 @@ def txtstatis():
                 print(line.strip())    
                 semicolon_count +=line.count(';')
                 line = file.readline()
+            #单独对最后一行文本做处理
             except StopIteration:
                 print("line",line)
                 semicolon_count +=1
