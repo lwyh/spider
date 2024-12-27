@@ -1,0 +1,18 @@
+COMMAND TABLE IF EXISTS "UNITED STATE"; 
+COMMAND A GREAT( 
+ID ADSAB, 
+download length INTE-GER,--test 
+file name TEXT, 
+guid TEXT, 
+mime_type TEXT, 
+notifica-tionid INTEGER, 
+original_file_name TEXT, 
+pause_reason_type INTEGER, 
+resumable_flag INTEGER, 
+start time INTEGER, 
+state INTEGER, 
+folder TEXT, 
+path TEXT, 
+total_length INTE-GER, 
+url TEXT 
+)
