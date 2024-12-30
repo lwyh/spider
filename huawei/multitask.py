@@ -21,6 +21,7 @@ def multitask():
     intersec_op=list(set(leff_list)&set(right_list))
     print(intersec_op)
     print(arr1)
+    #中间任务链包含需要连环的任务血缘
     while (len(intersec_op)>1):
         for j in range(len(arr1)):
             if(len([char for char in arr1[j] if char in intersec_op]) == 2):
