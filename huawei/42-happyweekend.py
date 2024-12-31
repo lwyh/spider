@@ -57,6 +57,8 @@ def happyweekend():
                 new_path=path.copy()
                 #记录新的方向
                 new_directions=direction+[new_direction]
+                #print(new_direction,new_path,new_directions)
+                #print(new_visited)
                 new_paths = dfs(matrix,nx,ny,x2,y2,new_path,new_visited,new_directions) 
                 for new_path in new_paths:
                     if new_path:#确保路径不为空
@@ -93,18 +95,6 @@ def happyweekend():
             target+=1
     print(target)
     return target
-        
-
-
-
-        
-
-        
-
-    
-
-
-
 if __name__=="__main__":
     happyweekend()
 
