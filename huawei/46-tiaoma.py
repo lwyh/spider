@@ -92,10 +92,17 @@ def horsesteps():
                                 nonkey_dict[(x,y)]=min(len(avialble_paths[j]) for j in range(len(avialble_paths)))-1
                     avialble_paths=[]
             print(nonkey_dict,"nonkey_dict")
-            endkey_dict[(mm,nn)]=sum(nonkey_dict.values())
+            if(-1 in nonkey_dict.values() ):
+                endkey_dict[(mm,nn)]=-1
+            else:
+                endkey_dict[(mm,nn)]=sum(nonkey_dict.values())
             print(endkey_dict,"endkey_dict")
-            out=min(endkey_dict.values())
-            print(out,"out")
+    filtered_dict = {k: v for k, v in endkey_dict.items() if v != -1}
+    if(len(filtered_dict)==1):
+        out=filtered_dict.values()
+    else:
+        out=min(filtered_dict.values())
+    print(out,"out")
 
 """
 

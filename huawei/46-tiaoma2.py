@@ -26,14 +26,16 @@ def horsesteps():
     
 
 
-
+    
     for i in range(m):
         for j in range(n):#终点位置
+            visited=set()
+            #这个外层循环标志的位置也很重要，之前放在i最外层，导致每次只取一个非零值就到最外层了
+            outer_break = False
             for (x,y),item in np.ndenumerate(matrix):
-                #print((x,y),item)
+                print("00000",(x,y),item)
                 if(item !=0):
                     queue=deque([(x,y,0)])#起点位置以及步数
-                    visited=set()
                     visited.add((x,y))
                     while queue :
                         print("1",queue)
@@ -43,6 +45,7 @@ def horsesteps():
                         print(x,y,steps)
                         print("nonkey_dict",nonkey_dict)
                         #print("(i,j)",i,j)
+                        
                         #只将符合条件的最早到达终点的路径的步数相加，就继续走下一个非零的马点
                         if( (x,y)==(i,j) and steps<=item): 
                             print("step01",x,y,steps,item)
@@ -54,16 +57,36 @@ def horsesteps():
                             # print("pass",x,y,steps)
                             print("pro",nonkey_dict)
                             visited=set()
-                            visited.add((x,y))
-                            continue
+                            break
+                        if( (x,y)==(i,j) and steps>item):
+                            nonkey_dict[(x,y)]=-1
+                            outer_break = True  #外层循环标志
+                            break
+
                         for dx,dy in directions:   
                             nx,ny= x+dx,y+dy
                             if(nx>=0 and nx<m and ny>=0 and ny<n and (nx,ny) not in visited):
                                 visited.add((nx,ny))
                                 queue.append((nx,ny,steps+1))
+            
+                        
+                    if(outer_break):
+                        break
+                         
+                
+
+                        
     #nonkey_dict 这个就存储了到达不同终点的所有马跳步数之和最小值
+    #还需要补充nonkey_dict中永远也到达不了的点的值
+    for (x,y),item in np.ndenumerate(matrix):
+         if((x,y) not in nonkey_dict):
+            nonkey_dict[(x,y)]=-1
+            print('===========')
+    
     print("nonkey_dict",nonkey_dict)
-    out = min(nonkey_dict.values())
+
+    filtered_dict = {k: v for k, v in nonkey_dict.items() if v != -1}
+    out = min(filtered_dict.values())
     print(out)           
 
 
