@@ -23,7 +23,7 @@ def backtrace(tasks,months,index,limit):
             if(backtrace(tasks,months,index+1,limit)):
                 return True
                 #当mid值为10，8时，直接返回true了，else后面的不再执行跟if并齐的也不再执行
-                #当mid值为7时，因为不满足if后面的条件，所以会继续else以及后面的模块。直至跳出循环
+                #当mid值为7时，因为不满足if后面的条件，所以会继续else以及后面的模块从最里层的为false,等价于bactrace上一层也为false直至最外城的bactrace仍为false的执行。直至执行最后一个if（month[i]=0）而跳出循环
             else:
                 months[i]-=current
             print("i,months[i]",i,months[i],limit)
