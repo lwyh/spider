@@ -81,8 +81,10 @@ def zuiyouluxian1():
         print("visited_columns",visited_columns)
         node_0_distance = bfs_shorttest_path(graph,item) #上一轮最短距离的节点作为下一轮的起点
         print(node_0_distance)
-        #去掉已访问过的节点，如果在已访问过的点中将其权重重新赋值为无穷大，这样就不会考虑
+        #去掉已访问过的节点，如果在已访问过的点中将其权重重新赋值为无穷大，这样就不会考虑，此处输出的是最小值对应的键
         item=min(node_0_distance,key= lambda x: node_0_distance[x] if x not in visited_columns else float('inf'))
+        # 使用 min() 函数和 enumerate() 函数找到最小值的键值对，而不是只有键，两种方法都可以
+        #second_node_dict = min(enumerate(node_0_distance), key=lambda item: (item[1] if item[0] not in visited_columns else float('inf'), item))
         print(item) #3
         visited_columns.add(item)
         distance_path+=node_0_distance[item]
