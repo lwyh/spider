@@ -30,6 +30,7 @@ def minNumber():
         for j in range(1,len(queque)+1):
             queque_list= list(queque)
             print(queque_list,"queque_list")
+            #实现在list的各个位置添加某一元素，并输出所有可能
             new_list = queque_list[:j]+[0]+queque_list[j:]
             avialble_m.append(new_list) 
         print("avialble_m",avialble_m)
