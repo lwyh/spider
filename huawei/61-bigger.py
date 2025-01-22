@@ -10,6 +10,7 @@ def bigger():
     all_combinations = itertools.permutations(array1)
     print(all_combinations,"all_combinations")
     num_dict=dict()
+    #需要处理特殊情况
     if(max(array1)<min(array2)):
         count=0
         for combinlist in all_combinations: 
