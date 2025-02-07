@@ -40,7 +40,7 @@ def maxamount():
         backtrack(0,[])
         return result
 
-    all_combinations =split_combination(ss_list)
+    all_combinations = split_combination(ss_list)
     star=dict()
     for sublist in all_combinations:
         sum_list=[sum(sublist[i]) for i in range(len(sublist))]
@@ -54,8 +54,8 @@ def maxamount():
     value_list=list(star.values())
     #此处主要是对交易价格进行降序，同时对切割次数进行升序
     sorted_date = sorted(value_list,key=lambda item:(-item[0],item[1]))
-    print("sorted_date===================",sorted_date)
-    out_list=[key for key,value in star.items() if value ==sorted_date[0] ]
+    print("sorted_date===================",sorted_date) 
+    out_list=[key for key,value in star.items() if value ==sorted_date[0]]
     print((out_list))
 
     # 对每个元组排序后去重，元组中的元素是不可变化的，所以之后的去重只是针对元组去重了，不会对元组中的元素也去重了
