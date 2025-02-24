@@ -12,10 +12,11 @@ k = int(arr[0])
 n =int(arr[1])
 m =int(arr[2])
 out = 0
-while(k / m != 0):
+while(k // m != 0):
     if(k % m == n):
         out+=1
-    k =k / m
-if(k==n):
+    k =k // m
+print(k)
+if(k%m==n):
     out+=1
 print(out) 
